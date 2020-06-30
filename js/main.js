@@ -20,24 +20,25 @@ $(function (){
         }
     });
 
+    // TOGGLE MENU 
     $(".togle").on("click",function(){
+        
         $(this).toggleClass('show');
-        $("#fixed-navbar").toggleClass("show-fixed");
+        
+        $("#fixed-navbar").toggleClass("show-menu");
 
-        if($("#fixed-navbar").hasClass("show-fixed"))
-        {
-            $('#fixed-navbar').animate({
-                left:'0',
-            },500);
-        }else
-        {
-            $('#fixed-navbar').animate({
-                left:'-100%',
-            },500);
-        }
-      
-
+       
     });
+
+    //TOGGLE LINKE CLOSE 
+
+    $("#fixed-navbar a").on("click",function(){
+        $("#toggle").removeClass("show");
+        $("#fixed-navbar").removeClass("show-menu");
+    });
+
+    
+
 
     $("#links li a" ).on("click",function(){
         $(this).addClass("active").parent().siblings().find('a').removeClass("active");
@@ -58,11 +59,36 @@ $(function (){
     $("#exit").on("click",function(){
         $(".video iframe").removeClass("show");
         $("#exit").removeClass("view");
+        $(".video .content-video iframe").attr("src","https://www.youtube.com/embed/9qVNFqCvhU8");
     });
 
 
 
+// fixed video 
 
+    $("#show-video").on("click",function(){
+        $("#fixed-video").fadeIn();
+        //$("#fixed-video").addClass("flex-show");
+
+        /*if($(".fixed-video").hasClass("flex-show"))
+        {
+            $(this).on("click",function(){
+                $("#fixed-video").fadeOut();
+            });
+        }*/
+    });
+    $("#fixed-video").on("click",function(){
+        $(".fixed-video").fadeOut();
+        $("#fixed-video iframe").attr("src","https://www.youtube.com/embed/9Pb1XxOqpYA")
+        //$("#fixed-video").removeClass("flex-show");
+    });
+
+
+
+    $("#fixed _video").on("click",function(){
+        $(this).fadeOut(400);
+        console.log("ahmed")
+    });
 
 
 

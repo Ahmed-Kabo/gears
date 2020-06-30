@@ -13,7 +13,7 @@
            // background: $dark-color;
            //padding: 0  15px ;
            @include prefixer(transition,all 0.3s ease,webkit moz);
-           background: rgba(0, 0, 0, 0.8);
+           background: rgba(0, 0, 0, 0.9);
 
         }
         @media (max-width:992px)
@@ -121,24 +121,38 @@
              grid-column: span 3;
                display: grid;
                grid-template-columns: repeat(3,1fr);
+
                @media (max-width:992px) {
                 position: fixed;
                 top: 0;
-                left: -100%;
+                left: 0;
                 width: 70%;
                 z-index: 27;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.8);
+                
+                background: rgba(0, 0, 0, 0.9);
+                padding: 25px 0 ;
                 grid-template-columns: repeat(1, 1fr);
                 border-right: 2px solid transparent;
                 border-image-source: linear-gradient(90deg, #7f01d4, #00fffe);
                 border-image-slice: 1;
                 box-shadow: 0 0 22px -4px rgba(162, 8, 255, 0.88);
-            
+                visibility: hidden;
+                @include prefixer(transform,translate3d(-100%,0,0),webkit moz);
+                @include prefixer(transition,all 0.4s linear,webkit moz);
+
+               }
+
+
+               &.show-menu
+               {
+                   visibility: visible;
+                   @include prefixer(transform,translate3d(0,0,0),webkit moz);
                }
                @media (max-width:500px) {
                 width: 100% !important;
                }
+              
                
                
                ul

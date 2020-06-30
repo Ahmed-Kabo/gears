@@ -1,7 +1,7 @@
 .footer
 {
     padding-top: 60px;
-    background: #222;
+    background: #000;
     h4{
         color: $color-nave;
        // font-weight: bold;
@@ -23,6 +23,7 @@
                 {
                     color: #606060;
                     margin: 0 0px 0 10px ;
+                    font-size: 20px;
                 }
                 a{
                     color:$p-color;
@@ -72,18 +73,34 @@
 
     .map
     {
-        overflow: hidden;
-        iframe{
-            width: 100%;
-            height: 100% ;
+        position: relative;
+
+       overflow: hidden !important;
+       min-height: 260px;
+        .contianer-map
+        {
+            height: 100%;
+            overflow: hidden;
+            iframe{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+               
+            }
         }
+
     }
 
     .copyright
     {
         padding: 15px;
-        margin-top: 20px;
+        margin-top: 40px;
+        background: #111;
         color: $p-color;
-        border-top: 0.5px solid $p-color;
+        
     }
 }

@@ -71,64 +71,73 @@ a:hover
 
     .about-us
     {
-        //background:url(../../../image/bg2.jpg)  center center no-repeat ;
-      //  @include prefixer(background-size,cover,webkit moz );
+        background:url(../../../image/bg5.jpg)  center center no-repeat fixed;
+
+        @include prefixer(background-size,cover,webkit moz );
        
         padding: 100px 0 ;
         overflow: hidden;
-        background: $dark-color;
+       // background: $dark-color;
+      // background: #eee;
 
+       .about-content
+       {
+           padding: 20px;
+           .section-header
+           {
+               //color: $hover-nave;
+               color: #222;
+               @extend %s-h;
+               
+               &::after
+               {
+                   @extend %a-s-h;
+               }
+           }
+           .paragraph
+           {
+               color: $p-color;
+               @extend %paragraph;
+           }
+   
+       }
 
-        .section-header
+   .about-items
+   {
+       box-shadow: 0 0 15px rgba(125, 125, 125, 0.29);
+       padding: 10px;
+       background: $hover-nave;
+    .about-us-content
+    {
+        padding: 20px 15px;
+
+        min-height: 280px;
+
+        .icon
         {
-            color: $hover-nave;
-            @extend %s-h;
-            
-            &::after
-            {
-                @extend %a-s-h;
-            }
+            display: block;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: $main-color;
+            @include prefixer(background-clip,text,webkit moz);
+            @include prefixer(text-fill-color,transparent,webkit moz);
+               
         }
+        h5
+        {
+         //   color: $color-nave;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
         .paragraph
         {
             color: $p-color;
-            @extend %paragraph;
         }
+    }
+   }
 
-
-        .about-us-content
-        {
-            padding: 20px 15px;
-         //   margin: 15px 5px;
-            min-height: 280px;
-             border: 0.5px solid #44444462; 
-          //  box-shadow: 0 0 9px #017ed470;
-          //  border-radius: 10px;
-
-
-            .icon
-            {
-                display: block;
-                font-size: 3rem;
-                margin-bottom: 0.5rem;
-                background: $main-color;
-                @include prefixer(background-clip,text,webkit moz);
-                @include prefixer(text-fill-color,transparent,webkit moz);
-               
-                
-            }
-            h5
-            {
-                color: $color-nave;
-                font-weight: bold;
-                margin-bottom: 15px;
-            }
-
-            .paragraph
-            {
-                color: $p-color;
-            }
-        }
+       
 
     }
 
@@ -192,10 +201,10 @@ a:hover
 {
     //$path : "../image/pg";
 //height: 200px;
-    background:url(../../../image/bg.jpg)  center center no-repeat fixed;
+    background:url(../../../image/bg3.jpg)  center center no-repeat fixed;
     @include prefixer(background-size,cover,webkit moz );
     position: relative;
-    min-height: 600px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     .overlay
@@ -204,7 +213,16 @@ a:hover
         background: rgba(0,0,0,0.7);
         z-index: 1;
     }
-
+    .section-header
+    {
+        z-index: 20;
+        color: $hover-nave;
+        margin-bottom: 40px;
+        @extend %s-h;
+        &::after{
+            @extend %a-s-h;
+        }
+    }
     .content-video
     {
         position: relative;
@@ -225,8 +243,12 @@ a:hover
              right: 0;
              z-index: 5;
             overflow: hidden;
-            img{
+            .img{
+                background:url(../../../image/bg4.jpg)  center center no-repeat ;
+                @include prefixer(background-size,cover,webkit moz );
+                
                 max-width: 100%;
+                height: 100%;
             }
         }
 
@@ -303,14 +325,19 @@ a:hover
         h3
         {
             font-weight: bold;
-            color: $hover-nave;
-            margin-bottom: 20px;
+            color: $color-nave;
+            padding-bottom: 10px;
+            display: inline-block;
+            border-bottom: 1px solid #ffffff85;
+            margin-bottom: 15px;
+           
 
         }
 
         p
         {
             @extend %paragraph;
+            line-height: 1.5;
             color: $color-nave;
             margin: 20px 0;
         }
@@ -469,5 +496,33 @@ a:hover
 }
 
 
+.fixed-video
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: none;
+    background: rgba(0,0,0,0.7);
+  
+    cursor: pointer;
 
 
+    .content-video
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        
+        iframe
+        {
+          //  display: block;
+           // min-width: 700px;
+          //  min-height: 400px;
+        }
+    }
+}
